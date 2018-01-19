@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="IBS-QR Kod Alıcı:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IBS_QR_Kod_Alc_jar</output-path>
+    <root id="archive" name="IBS-QR Kod Alıcı.jar">
+      <element id="module-output" name="IBS-QR Kod Alıcı" />
+    </root>
+  </artifact>
+</component>

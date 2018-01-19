@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_ıbs-qr_kod_alıcı" default="compile.module.ıbs-qr_kod_alıcı">
+  <dirname property="module.ıbs-qr_kod_alıcı.basedir" file="${ant.file.module_ıbs-qr_kod_alıcı}"/>
+  
+  <property name="module.jdk.home.ıbs-qr_kod_alıcı" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.ıbs-qr_kod_alıcı" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.ıbs-qr_kod_alıcı" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.ıbs-qr_kod_alıcı" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="ıbs-qr_kod_alıcı.output.dir" value="${module.ıbs-qr_kod_alıcı.basedir}/out/production/IBS-QR Kod Alıcı"/>
+  <property name="ıbs-qr_kod_alıcı.testoutput.dir" value="${module.ıbs-qr_kod_alıcı.basedir}/out/test/IBS-QR Kod Alıcı"/>
+  
+  <path id="ıbs-qr_kod_alıcı.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="ıbs-qr_kod_alıcı.module.production.classpath">
+    <path refid="${module.jdk.classpath.ıbs-qr_kod_alıcı}"/>
+  </path>
+  
+  <path id="ıbs-qr_kod_alıcı.runtime.production.module.classpath">
+    <pathelement location="${ıbs-qr_kod_alıcı.output.dir}"/>
+  </path>
+  
+  <path id="ıbs-qr_kod_alıcı.module.classpath">
+    <path refid="${module.jdk.classpath.ıbs-qr_kod_alıcı}"/>
+    <pathelement location="${ıbs-qr_kod_alıcı.output.dir}"/>
+  </path>
+  
+  <path id="ıbs-qr_kod_alıcı.runtime.module.classpath">
+    <pathelement location="${ıbs-qr_kod_alıcı.testoutput.dir}"/>
+    <pathelement location="${ıbs-qr_kod_alıcı.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.ıbs-qr_kod_alıcı">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.ıbs-qr_kod_alıcı">
+    <patternset refid="excluded.from.module.ıbs-qr_kod_alıcı"/>
+  </patternset>
+  
+  <path id="ıbs-qr_kod_alıcı.module.sourcepath">
+    <dirset dir="${module.ıbs-qr_kod_alıcı.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.ıbs-qr_kod_alıcı" depends="compile.module.ıbs-qr_kod_alıcı.production,compile.module.ıbs-qr_kod_alıcı.tests" description="Compile module IBS-QR Kod Alıcı"/>
+  
+  <target name="compile.module.ıbs-qr_kod_alıcı.production" depends="register.custom.compilers" description="Compile module IBS-QR Kod Alıcı; production classes">
+    <mkdir dir="${ıbs-qr_kod_alıcı.output.dir}"/>
+    <javac2 destdir="${ıbs-qr_kod_alıcı.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.ıbs-qr_kod_alıcı}/javac">
+      <compilerarg line="${compiler.args.ıbs-qr_kod_alıcı}"/>
+      <bootclasspath refid="ıbs-qr_kod_alıcı.module.bootclasspath"/>
+      <classpath refid="ıbs-qr_kod_alıcı.module.production.classpath"/>
+      <src refid="ıbs-qr_kod_alıcı.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.ıbs-qr_kod_alıcı"/>
+    </javac2>
+    
+    <copy todir="${ıbs-qr_kod_alıcı.output.dir}">
+      <fileset dir="${module.ıbs-qr_kod_alıcı.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.ıbs-qr_kod_alıcı.tests" depends="register.custom.compilers,compile.module.ıbs-qr_kod_alıcı.production" description="compile module IBS-QR Kod Alıcı; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.ıbs-qr_kod_alıcı" description="cleanup module">
+    <delete dir="${ıbs-qr_kod_alıcı.output.dir}"/>
+    <delete dir="${ıbs-qr_kod_alıcı.testoutput.dir}"/>
+  </target>
+</project>
