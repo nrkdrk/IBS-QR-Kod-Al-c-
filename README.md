@@ -10,8 +10,10 @@ Burada cihazın local ip'sini otomatik olarak alıyoruz.Bazı durumlarda portun 
 
 ![alt text](https://github.com/nrkdrk/IBS-QR-Kod-Al-c-/blob/master/image/%C4%B1bs-qr-kod-al%C4%B1c%C4%B1.PNG)
 
-
+# IBS-QR Kod Okuyucu
 https://github.com/nrkdrk/IBS-QR-Kod-Okuyucu
+mobil uygulaması ile aşağıda ki qr kodu okuttuk ve menüden pc'ye aktar dedik.
+Ardından qr koddaki değerimiz uygulamamıza gönderildi.
 
 
 ![alt text](https://github.com/nrkdrk/IBS-QR-Kod-Al-c-/blob/master/image/%C4%B1bs-qr-kod-al%C4%B1c%C4%B1%20kod%20ald%C4%B1.PNG)
