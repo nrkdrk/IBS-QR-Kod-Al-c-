@@ -47,7 +47,7 @@ public class IBSQRKodAlıcı extends JFrame {
 }
 ```
 
-# IBSQRKodAlıcı Sınıfı IBSQRKodAlıcı Metodu(Contract Class)
+# IBSQRKodAlıcı Sınıfı IBSQRKodAlıcı Metodu(Contract Method)
 
 Bu metotda görsel ayarlamalarımızı bazı sistem ayarlarını yaptık
 
@@ -78,5 +78,48 @@ public IBSQRKodAlıcı(){
         jScrollPane.setBounds(10,60,318,300);
         portNumber=Integer.parseInt(getPortNumberTextField.getText().toString());
 
+    }
+```
+
+# IBSQRKodAlıcı Sınıfı main Metodu(Main Method)
+
+Bu metotda Sistemi başlattık ve sistem ayarlarını yaptık gelen qr değerini de ekrana yazdık
+
+```java
+/*24-11-2017*/
+/*NrkDrk  Berk Can www.nrkdrk.com*/
+public static void main(String[] args) throws UnknownHostException {
+        InetAddress address = InetAddress.getLocalHost();
+        String adres=address.toString();
+        String[] adresArray = adres.split("/");
+        int countryLineCount = adresArray.length;
+        for(int i=1; i< countryLineCount; i++) {
+            System.out.println("Yerel IP Adres : "+ adresArray[i]);
+            ipAdress=adresArray[i];
+        }
+        new IBSQRKodAlıcı();
+        try {
+            System.out.println("server port aktif, port:"+portNumber);
+            while (true){
+                serverSocket=new ServerSocket(portNumber);
+                socket=serverSocket.accept();
+                ınputStreamReader=new InputStreamReader(socket.getInputStream());
+                bufferedReader=new BufferedReader(ınputStreamReader);
+                data=bufferedReader.readLine();
+                if(data!=null){
+                    System.out.println(data);
+                    jTextArea.setLineWrap(true);
+                    jTextArea.setWrapStyleWord(true);
+                    jTextArea.setText(data);
+                    //jLabel1.setText("Verileriniz Aktarıldı.Şimdi hangi formatta kaydedelim?");
+                }
+                ınputStreamReader.close();
+                bufferedReader.close();
+                serverSocket.close();
+                socket.close();
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 ```
