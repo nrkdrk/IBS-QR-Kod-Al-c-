@@ -46,3 +46,37 @@ public class IBSQRKodAlıcı extends JFrame {
     }
 }
 ```
+
+# IBSQRKodAlıcı Sınıfı IBSQRKodAlıcı Metodu(Contract Class)
+
+Bu metotda görsel ayarlamalarımızı bazı sistem ayarlarını yaptık
+
+```java
+/*24-11-2017*/
+/*NrkDrk  Berk Can www.nrkdrk.com*/
+public IBSQRKodAlıcı(){
+        this.setTitle("IBS-QR Kod Alıcı");
+        this.setSize(350 , 420);
+        this.setLayout(null);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jLabel = new JLabel("Port Numaranız");
+        jLabel2 = new JLabel("Ip Adresiniz: "+ipAdress);
+        getPortNumberTextField = new JTextField("7844");
+        jLabel1 = new JLabel("");
+        jTextArea=new JTextArea(5,1);
+        jScrollPane=new JScrollPane(jTextArea);
+        this.add(jLabel);     // veya this.getContentPane().add(buton1);
+        this.add(jLabel1);     // veya this.getContentPane().add(buton1);
+        this.add(jLabel2);     // veya this.getContentPane().add(buton1);
+        this.add(getPortNumberTextField);     // veya this.getContentPane().add(buton1);
+        this.add(jScrollPane);     // veya this.getContentPane().add(buton1);
+        jLabel.setBounds(10,20,100,40);
+        jLabel2.setBounds(10,0,200,40);
+        jLabel1.setBounds(10,40,400,40);
+        getPortNumberTextField.setBounds(100,30,100,20);
+        jScrollPane.setBounds(10,60,318,300);
+        portNumber=Integer.parseInt(getPortNumberTextField.getText().toString());
+
+    }
+```
