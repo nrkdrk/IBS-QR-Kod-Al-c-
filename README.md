@@ -19,8 +19,49 @@ Ardından qr koddaki değerimiz uygulamamıza gönderildi.
 ![alt text](https://github.com/nrkdrk/IBS-QR-Kod-Al-c-/blob/master/image/%C4%B1bs-qr-kod-al%C4%B1c%C4%B1%20kod%20ald%C4%B1.PNG)
 
 
+# IBS-QR Kod Okuyucu IBSQRKodAlıcı Sınıfı
 ```java
-public static void main(String[] args) throws UnknownHostException {
+public class IBSQRKodAlıcı extends JFrame {
+
+    private static ServerSocket serverSocket;
+    private static Socket socket;
+    private static BufferedReader bufferedReader;
+    private static InputStreamReader ınputStreamReader;
+    private static String data="",ipAdress;
+    private static int portNumber;
+    private static JTextField portNumberTextField;
+    private static JLabel jLabel,jLabel1,jLabel2;
+    private static JTextField getPortNumberTextField;
+    private static JTextArea jTextArea;
+    private static JScrollPane jScrollPane;
+
+    public IBSQRKodAlıcı(){
+        this.setTitle("IBS-QR Kod Alıcı");
+        this.setSize(350 , 420);
+        this.setLayout(null);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jLabel = new JLabel("Port Numaranız");
+        jLabel2 = new JLabel("Ip Adresiniz: "+ipAdress);
+        getPortNumberTextField = new JTextField("7844");
+        jLabel1 = new JLabel("");
+        jTextArea=new JTextArea(5,1);
+        jScrollPane=new JScrollPane(jTextArea);
+        this.add(jLabel);     // veya this.getContentPane().add(buton1);
+        this.add(jLabel1);     // veya this.getContentPane().add(buton1);
+        this.add(jLabel2);     // veya this.getContentPane().add(buton1);
+        this.add(getPortNumberTextField);     // veya this.getContentPane().add(buton1);
+        this.add(jScrollPane);     // veya this.getContentPane().add(buton1);
+        jLabel.setBounds(10,20,100,40);
+        jLabel2.setBounds(10,0,200,40);
+        jLabel1.setBounds(10,40,400,40);
+        getPortNumberTextField.setBounds(100,30,100,20);
+        jScrollPane.setBounds(10,60,318,300);
+        portNumber=Integer.parseInt(getPortNumberTextField.getText().toString());
+
+    }
+
+    public static void main(String[] args) throws UnknownHostException {
         InetAddress address = InetAddress.getLocalHost();
         String adres=address.toString();
         String[] adresArray = adres.split("/");
@@ -54,4 +95,6 @@ public static void main(String[] args) throws UnknownHostException {
             e.printStackTrace();
         }
     }
+
+}
 ```
